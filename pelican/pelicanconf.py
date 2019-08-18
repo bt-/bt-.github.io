@@ -4,8 +4,8 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Ben Taylor'
 SITENAME = 'BT Archives'
-SITEURL = ''
-# SITEURL = 'http://bt-.github.io'
+# SITEURL = ''
+SITEURL = 'http://bt-.github.io'
 
 PATH = 'content'
 
