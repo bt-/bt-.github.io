@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>BT Archives</title><link href="https://bt-.github.io/" rel="alternate"></link><link href="https://bt-.github.io/feeds/all.atom.xml" rel="self"></link><id>https://bt-.github.io/</id><updated>2018-01-04T12:00:00-06:00</updated><entry><title>Creating a Conda environment.yml file</title><link href="https://bt-.github.io/creating-a-conda-environmentyml-file.html" rel="alternate"></link><published>2018-01-04T12:00:00-06:00</published><updated>2018-01-04T12:00:00-06:00</updated><author><name>Ben Taylor</name></author><id>tag:bt-.github.io,2018-01-04:/creating-a-conda-environmentyml-file.html</id><summary type="html">&lt;p&gt;I've been learning the Python data science tools as a hobby off and on for years and have re-focused my efforts over the last six months.  As a learning exercise and hopefully to create something useful for the solar industry, I've been working on a Python module (&lt;a href="https://github.com/bt-/pvcaptest"&gt;pvcaptest&lt;/a&gt;) that facilitates …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been learning the Python data science tools as a hobby off and on for years and have re-focused my efforts over the last six months.  As a learning exercise and hopefully to create something useful for the solar industry, I've been working on a Python module (&lt;a href="https://github.com/bt-/pvcaptest"&gt;pvcaptest&lt;/a&gt;) that facilitates capacity testing following ASTM E2848 standard.&lt;/p&gt;
+&lt;p&gt;The project is ongoing, but I am going to start documenting my experience in a series of posts.&lt;/p&gt;
+&lt;p&gt;I'll start with my most recent exercise: moving my work to a different computer by creating environment.yml file and a using it to create a new conda environment.&lt;/p&gt;
+&lt;p&gt;I was traveling over the holidays and I've been testing pvcaptest on a bulky windows laptop, which requires the skills of a contortionist to use on an airplane.  I happened to have a nice compact MacBook Pro with me and I thought, "I'll move my work over to the other computer to work on the plane.  I just need to replicate my conda environment and clone my repository from github."&lt;/p&gt;
+&lt;p&gt;And it was almost that simple.  I couldn't make an explicit replica of my conda environment using&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;conda&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="c1"&gt;--explicit&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;because I was moving from windows to OSX, so I created a .yml file including the packages I knew I would need, commited it, and pushed it to my remote repository on github.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pvc_env&lt;/span&gt;
+&lt;span class="n"&gt;dependencies&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;3.5&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pandas&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.20&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.13&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;dateutil&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;2.5&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.5&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;statsmodels&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.8&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;scikit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;learn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.19&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;seaborn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.7&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;bokeh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.12&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I moved over to my MacBook, cloned the repository, ran &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;conda&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;pvc_env&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yml&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and, somewhat expectedly, received an error.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;NoPackagesFoundError&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Package&lt;/span&gt; &lt;span class="n"&gt;missing&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;current&lt;/span&gt; &lt;span class="n"&gt;osx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt; &lt;span class="n"&gt;channels&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; 
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;dateutil&lt;/span&gt; &lt;span class="mf"&gt;2.5&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I fixed that by looking at the packages in my working environment again and prepended "python-" to "dateutil 2.5.3".  I try again and ...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;UnsatisfiableError&lt;/span&gt;: &lt;span class="nv"&gt;The&lt;/span&gt; &lt;span class="nv"&gt;following&lt;/span&gt; &lt;span class="nv"&gt;specifications&lt;/span&gt; &lt;span class="nv"&gt;were&lt;/span&gt; &lt;span class="nv"&gt;found&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;conflict&lt;/span&gt;:
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;matplotlib&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;.&lt;span class="mi"&gt;5&lt;/span&gt;.&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;numpy&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;.&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;mkl&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;.&lt;span class="mi"&gt;3&lt;/span&gt;.&lt;span class="mi"&gt;3&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;numpy&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;.&lt;span class="mi"&gt;13&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;conda info &amp;lt;package&amp;gt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;see&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;dependencies&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;each&lt;/span&gt; &lt;span class="nv"&gt;package&lt;/span&gt;.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, I follow the directions and start looking at the dependencies, but that route starts to look like a bit of a black hole.  I thought I likely had over constrained the versions, so I try throwing some * on the end and see if the wonderful folks at Anaconda have made conda Ben (idiot) proof.  And, success!&lt;/p&gt;
+&lt;p&gt;The next step was to activate my new env and run the jupyter notebook file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;source&lt;/span&gt; &lt;span class="n"&gt;activate&lt;/span&gt; &lt;span class="n"&gt;pvc_env&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I run the notebook and ...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;DataFrame&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;object&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="k"&gt;no&lt;/span&gt; &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;agg&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Well I know that the version of Pandas I specified for new environment does include the DataFrame aggregate method, so I must not be running that version in the notebook.  I run a quick check of the version &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_versions&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;as_json&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and confirm that I'm still using pandas 0.17.1.&lt;/p&gt;
+&lt;p&gt;I try checking the version in ipython and have the same issue.  At this point I'm a bit stumped.  I realize that my new env is not listed when running conda list env even thought it is shown in anaconda/envs/.  At the moment, this issue is still a mystery to me.&lt;/p&gt;
+&lt;p&gt;After a bit of thinking and scrolling through the packages installed in my working environment on the original computer, I realize maybe if I'm trying to run a notebook file that I need ipython and the notebook packages in my environment!&lt;/p&gt;
+&lt;p&gt;I conda install those and viola!  After making the adjustments to get to this point my environment file looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pvc_env&lt;/span&gt;
+&lt;span class="n"&gt;dependencies&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;3.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;pandas&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.20&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.13&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dateutil&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;2.5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;statsmodels&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.8&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;scikit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;learn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.19&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;seaborn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.7&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;bokeh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.12&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;notebook&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That wraps up this post, but there will be more to come.  Here is a preview of possible future topics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Setting up the project directory structure for a python project&lt;/li&gt;
+&lt;li&gt;Using Sphinx to build project documentation from docstrings&lt;/li&gt;
+&lt;li&gt;Finding docstring conventions, picking and following one&lt;/li&gt;
+&lt;li&gt;Using git for version control and github to work across multiple computers&lt;/li&gt;
+&lt;li&gt;Understanding decorators and writing one for the module&lt;/li&gt;
+&lt;li&gt;Organizing classes and methods and refactoring to improve&lt;/li&gt;
+&lt;li&gt;Learning how to generate linked plots in Bokeh&lt;/li&gt;
+&lt;/ul&gt;</content></entry></feed>

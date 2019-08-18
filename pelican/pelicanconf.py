@@ -20,16 +20,17 @@ TIMEZONE = 'America/Chicago'
 DEFAULT_LANG = 'en'
 
 # Theme Settings
-THEME = 'plumage'
+THEME = './pelican-themes/pelican-bootstrap3/'
 # used for OG tags and Twitter Card data on index page
-SITEIMAGE = 'headshot.jpg'
+# SITEIMAGE = 'headshot.jpg'
 # used for OG tags and Twitter Card data of index page
 SITEDESCRIPTION = 'Posts documenting my experience learning python and \
                    developing a python package.'
 # path to favicon
 # FAVICON = 'headshot.png'
 # path to logo for nav menu (optional)
-LOGO = 'headshot.jpg'
+# SITELOGO = 'images/headshot.jpg'
+# SITELOGOSIZE = 50
 # first name for nav menu if logo isn't provided
 FIRST_NAME = 'Ben'
 # google analytics (fake code commented out)
@@ -43,15 +44,16 @@ ATTRIBUTION = True
 # Other links can be added following the same tuple pattern
 # MENUITEMS = [('tags', '/tags')]
 # Social icons for footer
-# Set these to whatever your unique public URL is for that platform
-# I've left mine here as a example
-TWITTER = 'https://www.twitter.com/benjaming_t'
-GITHUB = 'https://github.com/bt-'
-LINKEDIN = 'https://www.linkedin.com/in/benjamin-taylor-1485a2b'
+SOCIAL = (('twitter', 'https://www.twitter.com/benjaming_t'),
+          ('github', 'https://github.com/bt-'),
+          ('linkedin', 'https://www.linkedin.com/in/benjamin-taylor-1485a2b')
+          )
+
 
 # PLUGINS
-# PLUGIN_PATHS = ['plugins']
-# PLUGINS = ['sitemap', 'category_order', 'w3c_validate', 'optimize_images', 'gzip_cache']
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['i18n_subsites', ]
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 #
 # ## SITEMAP PLUGIN
 # SITEMAP = {
