@@ -31,13 +31,13 @@ DEFAULT_PAGINATION = False
 # Brutalist theme settings
 THEME = 'brutalist'
 ## used for OG tags and Twitter Card data on index page
-SITEIMAGE = 'headshot.jpg'
+#SITEIMAGE = 'headshot.jpg'
 ## used for OG tags and Twitter Card data of index page
 SITEDESCRIPTION = 'Posts documenting my experience learning python and developing a python package.'
 ## path to favicon
 #FAVICON = 'pelly.png' # commented out default from theme
 ## path to logo for nav menu (optional)
-LOGO = 'headshot.jpg'
+#LOGO = 'headshot.jpg'
 ## first name for nav menu if logo isn't provided
 FIRST_NAME = 'bt-'
 ## google analytics (fake code commented out)
