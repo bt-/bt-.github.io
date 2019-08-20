@@ -1,0 +1,17 @@
+I was working on getting a blog setup using pelican
+and the pelican-bootstrap3 theme.
+
+I was able to use the pelicanconf.py to make the site and view it locally
+with the theme correctly applied.
+
+Using the publishconf.py to make the site and then push it to github did not
+work.  Github pages did not render it correctly and sent an error.
+
+"The page build failed for the `master` branch with the following error:
+
+The tag `set` on line 19 in `pelican/pelican-themes/elegant/documentation/content/Extra` is not a recognized Liquid tag. For more information, see https://help.github.com/en/articles/page-build-failed-unknown-tag-error."
+
+The primary difference between pelicanconf and publishconf is changing the
+SITEURL AND RELATIVE_URLS settings.
+
+For local development the SITEURL is blank and RELATIVE_URLS is true.
